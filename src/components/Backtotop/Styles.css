@@ -1,0 +1,8 @@
+.backtop_btn {
+    background-color: #999;
+}
+
+
+.backtop_btn:hover svg {
+    color: var(--clr-white) !important;
+}

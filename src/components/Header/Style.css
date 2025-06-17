@@ -1,0 +1,33 @@
+nav{
+  position: fixed;
+  max-width: 100%;
+  width: 100%;
+  height: 90px;
+  background-color: transparent;
+  display: flex;
+  justify-content: space-between;
+  padding-left: 30px;
+  padding-right: 30px;
+  align-items: center;  
+  gap: 20px;
+}
+
+#navBar {
+  transition: background-color 0.3s ease;
+}
+
+nav ul{
+  list-style-type: none;
+  display: flex;
+  gap: 20px;
+}
+
+.link_text{
+  text-decoration: none;
+  color: var(--clr-white);
+  transition: 0.3s linear;
+}
+
+.link_text:hover{
+  color: grey;
+}
