@@ -7,8 +7,6 @@ function Backtop() {
   return (
     <div 
     style={{
-        height: '300vh',
-        padding: 10,
       }}
     >
 

@@ -1,3 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Jaro:opsz@6..72&display=swap');
+
+
+:root{
+  --clr-white: #f2f2f2;
+  --clr-dark: #222;
+}
+
+.light-mode {
+  --clr-white: #000000;
+  --clr-dark: #f2f2f2;
+}
+
 nav{
   position: fixed;
   max-width: 100%;
@@ -6,10 +19,50 @@ nav{
   background-color: transparent;
   display: flex;
   justify-content: space-between;
-  padding-left: 30px;
-  padding-right: 30px;
+  padding-left: 120px;
+  padding-right: 120px;
   align-items: center;  
+  font-family: "Jaro", sans-serif;
+  color: var(--clr-white);
+  z-index: 1000;
+  transition: color 0.3s ease;
+}
+
+.links{
+  justify-content: center;
+  display: flex;
   gap: 20px;
+  align-items: center;
+}
+
+.btn_darkmode{
+  width: 30px;
+  height: 30px;
+  border-radius: 100%;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  background-color: var(--clr-white);
+  color: var(--clr-dark);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.light-mode .btn_darkmode{
+  background-color: grey;
+  color: var(--clr-white);
+}
+
+.light-mode .btn_darkmode:hover{
+  background-color: white;
+  color: var(--clr-white);
+}
+
+.btn_darkmode:hover{
+  background-color: grey;
+  color: var(--clr-white);
 }
 
 #navBar {
@@ -30,4 +83,125 @@ nav ul{
 
 .link_text:hover{
   color: grey;
+}
+
+.overlay {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: rgb(0,0,0);
+  background-color: rgba(0,0,0, 0.9);
+  overflow-x: hidden;
+  transition: 0.5s;
+}
+
+.overlay-content {
+  position: relative;
+  top: 25%;
+  width: 100%;
+  text-align: center;
+  margin-top: 30px;
+}
+
+.overlay a {
+  padding: 8px;
+  text-decoration: none;
+  font-size: 36px;
+  color: #818181;
+  display: block;
+  transition: 0.3s;
+}
+
+.overlay a:hover, .overlay a:focus {
+  color: #f1f1f1;
+}
+
+.overlay .closebtn {
+  position: absolute;
+  top: 20px;
+  right: 45px;
+  font-size: 60px;
+}
+
+.btn_menu{
+  display: none;
+  padding-top: 10px;
+  background: none;
+  border: none;
+  color: var(--clr-white);
+  font-size: 24px;
+  cursor: pointer;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  nav {
+    padding-left: 60px;
+    padding-right: 60px;
+  }
+
+  .links ul {
+    display: none;
+  }
+
+  .btn_menu {
+    display: block;
+  } 
+
+
+}
+
+@media (max-width: 768px) {
+  nav {
+    padding-left: 20px;
+    padding-right: 20px;
+    height: 70px;
+  }
+
+  .links {
+    gap: 15px;
+  }
+
+  nav ul {
+    gap: 15px;
+  }
+
+  .link_text {
+    font-size: 14px;
+  }
+
+  .btn_darkmode {
+    width: 25px;
+    height: 25px;
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  nav {
+    padding-left: 15px;
+    padding-right: 15px;
+    height: 60px;
+  }
+
+  .links {
+    gap: 10px;
+  }
+
+  nav ul {
+    gap: 10px;
+  }
+
+  .link_text {
+    font-size: 12px;
+  }
+
+  .btn_darkmode {
+    width: 44px;
+    height: 44px;
+    font-size: 20px;
+  }
 }

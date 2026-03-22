@@ -41,8 +41,16 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  transition: background-color 0.35s ease, color 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease;
 }
 
-body{
+body {
   background-color: #555;
+  transition: background-color 0.35s ease, color 0.35s ease;
+}
+
+.theme-transition *,
+.theme-transition *::before,
+.theme-transition *::after {
+  transition: background-color 0.35s ease, color 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease;
 }

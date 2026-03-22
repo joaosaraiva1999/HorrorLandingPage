@@ -8,18 +8,21 @@ import Backtop from './components/Backtotop';
 import Home from './pages/Home'
 import About from './pages/About'
 import Contacts from './pages/Contacts'
+import { ThemeProvider } from './context/ThemeContext';
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <Router>
-      <Header />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/about" element={<About />} />
-        <Route path='/Contacts' element={<Contacts />} />
-      </Routes>
-      <Backtop />
-      <Footer />
-    </Router>
+    <ThemeProvider>
+      <Router>
+        <Header />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<About />} />
+          <Route path='/Contacts' element={<Contacts />} />
+        </Routes>
+        <Backtop />
+        <Footer />
+      </Router>
+    </ThemeProvider>
   </StrictMode>,
 );
