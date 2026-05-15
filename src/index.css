@@ -1,56 +1,225 @@
 :root {
-  --clr-primary-1: hsl(205, 86%, 17%);
-  --clr-primary-2: hsl(205, 77%, 27%);
-  --clr-primary-3: hsl(205, 72%, 37%);
-  --clr-primary-4: hsl(205, 63%, 48%);
-  --clr-primary-5: #49a6e9;
-  --clr-primary-6: hsl(205, 89%, 70%);
-  --clr-primary-7: hsl(205, 90%, 76%);
-  --clr-primary-8: hsl(205, 86%, 81%);
-  --clr-primary-9: hsl(205, 90%, 88%);
-  --clr-primary-10: hsl(205, 100%, 96%);
-  --clr-grey-1: hsl(209, 61%, 16%);
-  --clr-grey-2: hsl(211, 39%, 23%);
-  --clr-grey-3: hsl(209, 34%, 30%);
-  --clr-grey-4: hsl(209, 28%, 39%);
-  --clr-grey-5: hsl(210, 22%, 49%);
-  --clr-grey-6: hsl(209, 23%, 60%);
-  --clr-grey-7: hsl(211, 27%, 70%);
-  --clr-grey-8: hsl(210, 31%, 80%);
-  --clr-grey-9: hsl(212, 33%, 89%);
-  --clr-grey-10: hsl(210, 36%, 96%);
-  --clr-white: #fff;
-  --clr-red-dark: hsl(360, 67%, 44%);
-  --clr-red-light: hsl(360, 71%, 66%);
-  --clr-green-dark: hsl(125, 67%, 44%);
-  --clr-green-light: hsl(125, 71%, 66%);
-  --clr-gold: #c59d5f;
+  --clr-white: #f2f2f2;
+  --clr-dark: #222;
   --clr-black: #222;
-  --ff-primary: "Roboto", sans-serif;
-  --ff-secondary: "Open Sans", sans-serif;
-  --transition: all 0.3s linear;
-  --spacing: 0.25rem;
-  --radius: 0.5rem;
-  --light-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-  --dark-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  --clr-grey: grey;
+  --clr-grey-light: #BFB7B7;
+  --clr-grey-dark: #D9D2D2;
+  --clr-blood: #8b2020;
+  --clr-blood-glow: rgba(139, 32, 32, 0.4);
+  --clr-gold: #c59d5f;
+  --clr-gold-glow: rgba(197, 157, 95, 0.4);
+  --ff-display: "Jaro", sans-serif;
+  --ff-horror: "Creepster", cursive;
+  --ff-body: "Roboto", sans-serif;
+  --radius: 8px;
+  --transition: all 0.3s ease;
   --max-width: 1170px;
-  --fixed-width: 620px;
 }
 
-* {
+*,
+*::before,
+*::after {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  transition: background-color 0.35s ease, color 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease;
 }
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Reduced motion: handled per-component in hooks (useScrollReveal, useTypewriter) */
 
 body {
   background-color: #555;
-  transition: background-color 0.35s ease, color 0.35s ease;
+  font-family: var(--ff-body);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  animation: pageEnter 0.6s ease-out both;
+}
+
+@keyframes pageEnter {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 .theme-transition *,
 .theme-transition *::before,
 .theme-transition *::after {
-  transition: background-color 0.35s ease, color 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease;
+  transition: background-color 0.35s ease, color 0.35s ease,
+              border-color 0.35s ease, box-shadow 0.35s ease !important;
+}
+
+::selection {
+  background: var(--clr-blood);
+  color: var(--clr-white);
+}
+
+.light-mode ::selection {
+  background: var(--clr-gold);
+  color: #222;
+}
+
+:focus-visible {
+  outline: 2px solid var(--clr-blood);
+  outline-offset: 3px;
+}
+
+.light-mode :focus-visible {
+  outline-color: var(--clr-gold);
+}
+
+:focus:not(:focus-visible) {
+  outline: none;
+}
+
+.skip-to-content {
+  position: fixed;
+  top: -100%;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 9999;
+  padding: 12px 24px;
+  background: var(--clr-blood);
+  color: var(--clr-white);
+  font-family: var(--ff-display);
+  font-size: 16px;
+  letter-spacing: 2px;
+  text-decoration: none;
+  border-radius: var(--radius);
+  transition: top 0.3s ease;
+}
+
+.skip-to-content:focus {
+  top: 10px;
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1),
+              transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.reveal.reveal--visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal--left {
+  opacity: 0;
+  transform: translateX(-60px);
+  transition: opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1),
+              transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.reveal--left.reveal--visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.reveal--right {
+  opacity: 0;
+  transform: translateX(60px);
+  transition: opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1),
+              transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.reveal--right.reveal--visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.reveal--scale {
+  opacity: 0;
+  transform: scale(0.88);
+  transition: opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1),
+              transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.reveal--scale.reveal--visible {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.reveal--delay-1 { transition-delay: 0.1s; }
+.reveal--delay-2 { transition-delay: 0.25s; }
+.reveal--delay-3 { transition-delay: 0.4s; }
+.reveal--delay-4 { transition-delay: 0.55s; }
+
+.glitch {
+  position: relative;
+  display: inline-block;
+}
+
+.glitch::before,
+.glitch::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.glitch::before {
+  color: #c9b8b8;
+  animation: glitch-before 3s infinite linear alternate-reverse;
+  clip-path: polygon(0 0, 100% 0, 100% 45%, 0 45%);
+}
+
+.glitch::after {
+  color: #b8c0c9;
+  animation: glitch-after 2s infinite linear alternate-reverse;
+  clip-path: polygon(0 60%, 100% 60%, 100% 100%, 0 100%);
+}
+
+.light-mode .glitch::before {
+  color: #3a3030;
+}
+
+.light-mode .glitch::after {
+  color: #30303a;
+}
+
+@keyframes glitch-before {
+  0%   { transform: translate(0); }
+  20%  { transform: translate(-3px, 2px); }
+  40%  { transform: translate(3px, -2px); }
+  60%  { transform: translate(-2px, 1px); }
+  80%  { transform: translate(2px, -1px); }
+  100% { transform: translate(0); }
+}
+
+@keyframes glitch-after {
+  0%   { transform: translate(0); }
+  20%  { transform: translate(2px, -3px); }
+  40%  { transform: translate(-2px, 3px); }
+  60%  { transform: translate(3px, -1px); }
+  80%  { transform: translate(-3px, 2px); }
+  100% { transform: translate(0); }
+}
+
+.typewriter-cursor {
+  display: inline-block;
+  width: 3px;
+  height: 1em;
+  background: var(--clr-grey-dark);
+  margin-left: 4px;
+  animation: blink 1s step-end infinite;
+  vertical-align: text-bottom;
+}
+
+.light-mode .typewriter-cursor {
+  background: #2c2a2a;
+}
+
+@keyframes blink {
+  50% { opacity: 0; }
 }

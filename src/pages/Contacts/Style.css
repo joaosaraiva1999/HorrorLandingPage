@@ -1,0 +1,136 @@
+@import url('https://fonts.googleapis.com/css2?family=Jaro:opsz@6..72&display=swap');
+
+.contact-grid {
+    gap: 24px;
+    flex-wrap: wrap;
+}
+
+.contact-card {
+    width: 26vw;
+    height: 60vh;
+    background-color: rgba(40, 40, 40, 0.92);
+    border: 1px solid rgba(100, 100, 100, 0.15);
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    text-decoration: none;
+    cursor: pointer;
+    transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1),
+                box-shadow 0.5s cubic-bezier(0.16, 1, 0.3, 1),
+                border-color 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.contact-card:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.5);
+    border-color: rgba(150, 150, 150, 0.35);
+}
+
+.light-mode .contact-card {
+    background-color: rgba(255, 255, 255, 0.88);
+    border: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.light-mode .contact-card:hover {
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.1);
+    border-color: rgba(0, 0, 0, 0.12);
+}
+
+.contact-icon {
+    font-size: 52px;
+    color: #D9D2D2;
+    transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1),
+                color 0.3s ease;
+}
+
+.contact-card:hover .contact-icon {
+    transform: scale(1.2) rotate(5deg);
+    color: #BFB7B7;
+}
+
+.light-mode .contact-icon {
+    color: #2c2a2a;
+}
+
+.light-mode .contact-card:hover .contact-icon {
+    color: #675f5f;
+}
+
+.contact-label {
+    font-size: 26px;
+    letter-spacing: 4px;
+    color: #D9D2D2;
+    font-family: "Jaro", sans-serif;
+}
+
+.light-mode .contact-label {
+    color: #2c2a2a;
+}
+
+.contact-detail {
+    font-size: 15px;
+    color: #BFB7B7;
+    font-family: "Roboto", sans-serif;
+    font-weight: 300;
+    word-break: break-all;
+}
+
+.light-mode .contact-detail {
+    color: #675f5f;
+}
+
+@media screen and (max-width: 1130px) {
+    .contact-grid {
+        flex-direction: column;
+        height: auto;
+        padding: 40px 20px;
+    }
+
+    .contact-card {
+        width: 80vw;
+        height: 50vh;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .contact-card {
+        width: 90vw;
+        height: 40vh;
+    }
+
+    .contact-label {
+        font-size: 20px;
+        letter-spacing: 3px;
+    }
+
+    .contact-icon {
+        font-size: 42px;
+    }
+
+    .contact-detail {
+        font-size: 14px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .contact-card {
+        width: 95vw;
+        height: 30vh;
+    }
+
+    .contact-label {
+        font-size: 18px;
+        letter-spacing: 2px;
+    }
+
+    .contact-icon {
+        font-size: 36px;
+    }
+
+    .contact-detail {
+        font-size: 12px;
+    }
+}
