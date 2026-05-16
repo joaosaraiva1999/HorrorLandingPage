@@ -1,5 +1,5 @@
 import "./Style.css";
-import Hero from "../../assets/img/galeria.png";
+import Hero from "../../assets/img/Galeria.png";
 import Hero2 from "../../assets/img/Galeria (1).png";
 import FundoCardSec from "../../assets/img/Cópia de Banner -  pizza.png";
 import { useTheme } from "../../context/ThemeContext";
