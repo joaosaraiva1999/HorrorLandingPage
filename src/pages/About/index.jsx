@@ -33,6 +33,7 @@ function About() {
           alt={lightMode ? "Angelic temple in divine light" : "Dark gothic cathedral"}
         />
         <div className="hero__fog" aria-hidden="true"></div>
+        <div className="hero__grain" aria-hidden="true"></div>
         <div className="hero-text">
           <h1 className="title glitch" data-text={titleText} aria-label={titleText}>
             {displayText}

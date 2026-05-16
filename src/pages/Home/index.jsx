@@ -33,6 +33,7 @@ function Home() {
           alt={lightMode ? "Angelic figure in golden light" : "Dark gothic illustration"}
         />
         <div className="hero__fog" aria-hidden="true"></div>
+        <div className="hero__grain" aria-hidden="true"></div>
         <div className="hero-text">
           <h1 className="title glitch" data-text={titleText} aria-label={titleText}>
             {displayText}

@@ -30,6 +30,7 @@ function Contacts() {
           alt={lightMode ? "Celestial garden with fountain" : "Misty graveyard with lantern"}
         />
         <div className="hero__fog" aria-hidden="true"></div>
+        <div className="hero__grain" aria-hidden="true"></div>
         <div className="hero-text">
           <h1
             className="title glitch"

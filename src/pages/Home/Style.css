@@ -47,42 +47,71 @@
     object-fit: cover;
     display: block;
     transition: opacity 0.6s ease, filter 0.6s ease;
-    filter: brightness(0.72) saturate(0.95);
+    filter: brightness(0.72) saturate(1.1) contrast(1.12) blur(0.4px);
     animation: heroZoom 20s ease-in-out infinite alternate;
+    image-rendering: auto;
 }
 
 @keyframes heroZoom {
-    0%   { transform: scale(1); }
-    100% { transform: scale(1.05); }
+    0%   { transform: scale(1.01); }
+    100% { transform: scale(1.07); }
 }
 
 .light-mode .hero img {
-    filter: brightness(1) saturate(1.05);
+    filter: brightness(1.02) saturate(1.1) contrast(1.08) blur(0.4px);
 }
 
 .hero::after {
     content: '';
     position: absolute;
     inset: 0;
-    background: linear-gradient(
-        180deg,
-        rgba(0, 0, 0, 0.15) 0%,
-        rgba(0, 0, 0, 0.0) 30%,
-        rgba(0, 0, 0, 0.0) 60%,
-        rgba(0, 0, 0, 0.5) 100%
-    );
+    background:
+        radial-gradient(ellipse at center, transparent 40%, rgba(0, 0, 0, 0.55) 100%),
+        linear-gradient(
+            180deg,
+            rgba(0, 0, 0, 0.2) 0%,
+            rgba(0, 0, 0, 0.0) 25%,
+            rgba(0, 0, 0, 0.0) 55%,
+            rgba(0, 0, 0, 0.6) 100%
+        );
     pointer-events: none;
     z-index: 5;
 }
 
 .light-mode .hero::after {
-    background: linear-gradient(
-        180deg,
-        rgba(255, 255, 255, 0.1) 0%,
-        rgba(255, 255, 255, 0.0) 30%,
-        rgba(255, 255, 255, 0.0) 60%,
-        rgba(255, 255, 255, 0.15) 100%
-    );
+    background:
+        radial-gradient(ellipse at center, transparent 45%, rgba(255, 255, 255, 0.35) 100%),
+        linear-gradient(
+            180deg,
+            rgba(255, 255, 255, 0.15) 0%,
+            rgba(255, 255, 255, 0.0) 25%,
+            rgba(255, 255, 255, 0.0) 55%,
+            rgba(255, 255, 255, 0.2) 100%
+        );
+}
+
+.hero__grain {
+    position: absolute;
+    inset: -50%;
+    width: 200%;
+    height: 200%;
+    z-index: 6;
+    pointer-events: none;
+    opacity: 0.035;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    animation: grainShift 0.5s steps(4) infinite;
+}
+
+.light-mode .hero__grain {
+    opacity: 0.025;
+}
+
+@keyframes grainShift {
+    0%   { transform: translate(0, 0); }
+    25%  { transform: translate(-5%, -5%); }
+    50%  { transform: translate(5%, 0); }
+    75%  { transform: translate(0, 5%); }
+    100% { transform: translate(-5%, 5%); }
 }
 
 .hero__fog {
