@@ -18,6 +18,8 @@
     gap: 20px;
     text-decoration: none;
     cursor: pointer;
+    text-align: center;
+    padding: 20px;
     transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1),
                 box-shadow 0.5s cubic-bezier(0.16, 1, 0.3, 1),
                 border-color 0.5s cubic-bezier(0.16, 1, 0.3, 1);
@@ -91,14 +93,17 @@
 
     .contact-card {
         width: 80vw;
-        height: 50vh;
+        height: auto;
+        min-height: 240px;
     }
 }
 
 @media screen and (max-width: 768px) {
     .contact-card {
         width: 90vw;
-        height: 40vh;
+        height: auto;
+        min-height: 200px;
+        padding: 24px 16px;
     }
 
     .contact-label {
@@ -117,8 +122,10 @@
 
 @media screen and (max-width: 480px) {
     .contact-card {
-        width: 95vw;
-        height: 30vh;
+        width: calc(100vw - 30px);
+        height: auto;
+        min-height: 180px;
+        padding: 20px 12px;
     }
 
     .contact-label {

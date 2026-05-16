@@ -35,7 +35,7 @@ function Home() {
         <div className="hero__fog" aria-hidden="true"></div>
         <div className="hero__grain" aria-hidden="true"></div>
         <div className="hero-text">
-          <h1 className="title glitch" data-text={titleText} aria-label={titleText}>
+          <h1 className="title" aria-label={titleText}>
             {displayText}
             {!isDone && <span className="typewriter-cursor" aria-hidden="true" />}
           </h1>

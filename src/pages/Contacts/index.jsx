@@ -33,8 +33,7 @@ function Contacts() {
         <div className="hero__grain" aria-hidden="true"></div>
         <div className="hero-text">
           <h1
-            className="title glitch"
-            data-text={titleText}
+            className="title"
             aria-label={titleText}
             onMouseEnter={() => setEasterEgg(true)}
             onMouseLeave={() => setEasterEgg(false)}

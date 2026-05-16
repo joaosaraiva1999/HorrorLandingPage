@@ -88,5 +88,10 @@ footer {
 
   .footer_text {
     font-size: 12px;
+    text-align: center;
+  }
+
+  .footer_text:hover {
+    letter-spacing: 1px;
   }
 }
