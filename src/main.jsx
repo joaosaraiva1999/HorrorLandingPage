@@ -9,11 +9,13 @@ const Home = lazy(() => import('./pages/Home'));
 const About = lazy(() => import('./pages/About'));
 const Contacts = lazy(() => import('./pages/Contacts'));
 import { ThemeProvider } from './context/ThemeContext';
+import { SpeedInsights } from "@vercel/speed-insights/react"
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <ThemeProvider>
       <Router>
+        <SpeedInsights />
         <Header />
         <Suspense fallback={null}>
           <Routes>
