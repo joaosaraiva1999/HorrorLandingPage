@@ -28,6 +28,7 @@ function Contacts() {
         <img
           src={lightMode ? HeroLight : HeroDark}
           alt={lightMode ? "Celestial garden with fountain" : "Misty graveyard with lantern"}
+          fetchpriority="high"
         />
         <div className="hero__fog" aria-hidden="true"></div>
         <div className="hero__grain" aria-hidden="true"></div>
@@ -62,6 +63,8 @@ function Contacts() {
           <img
             src={lightMode ? QuoteImg2 : QuoteImg}
             alt={lightMode ? "Angelic figure" : "Fallen angel illustration"}
+            loading="lazy"
+            decoding="async"
           />
         </div>
         <div className="line" aria-hidden="true"></div>

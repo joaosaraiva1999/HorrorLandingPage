@@ -1,4 +1,4 @@
-import { createContext, useContext, useState, useEffect } from "react";
+import { createContext, useContext, useState, useEffect, useCallback, useMemo } from "react";
 
 const ThemeContext = createContext();
 
@@ -19,10 +19,12 @@ export function ThemeProvider({ children }) {
     return () => clearTimeout(timeout);
   }, [lightMode]);
 
-  const toggle = () => setLightMode((prev) => !prev);
+  const toggle = useCallback(() => setLightMode((prev) => !prev), []);
+
+  const value = useMemo(() => ({ lightMode, toggle }), [lightMode, toggle]);
 
   return (
-    <ThemeContext.Provider value={{ lightMode, toggle }}>
+    <ThemeContext.Provider value={value}>
       {children}
     </ThemeContext.Provider>
   );

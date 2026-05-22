@@ -31,6 +31,7 @@ function About() {
         <img
           src={lightMode ? HeroLight : HeroDark}
           alt={lightMode ? "Angelic temple in divine light" : "Dark gothic cathedral"}
+          fetchpriority="high"
         />
         <div className="hero__fog" aria-hidden="true"></div>
         <div className="hero__grain" aria-hidden="true"></div>
@@ -56,6 +57,8 @@ function About() {
           <img
             src={lightMode ? QuoteImg2 : QuoteImg}
             alt={lightMode ? "Angelic figure" : "Fallen angel illustration"}
+            loading="lazy"
+            decoding="async"
           />
         </div>
         <div className="line" aria-hidden="true"></div>
@@ -84,13 +87,13 @@ function About() {
         aria-label="Gallery — vision, obsession, legacy"
       >
         <div className="card reveal--scale reveal--delay-1">
-          <img src={lightMode ? CardLight1 : CardDark1} alt="Vision" />
+          <img src={lightMode ? CardLight1 : CardDark1} alt="Vision" loading="lazy" decoding="async" />
         </div>
         <div className="card reveal--scale reveal--delay-2">
-          <img src={lightMode ? CardLight2 : CardDark2} alt="Obsession" />
+          <img src={lightMode ? CardLight2 : CardDark2} alt="Obsession" loading="lazy" decoding="async" />
         </div>
         <div className="card reveal--scale reveal--delay-3">
-          <img src={lightMode ? CardLight3 : CardDark3} alt="Legacy" />
+          <img src={lightMode ? CardLight3 : CardDark3} alt="Legacy" loading="lazy" decoding="async" />
         </div>
       </section>
 
@@ -117,6 +120,8 @@ function About() {
           <img
             src={lightMode ? QuoteImg2 : QuoteImg}
             alt={lightMode ? "Angelic guide" : "Dark fallen angel"}
+            loading="lazy"
+            decoding="async"
           />
         </div>
       </section>

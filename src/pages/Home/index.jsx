@@ -31,6 +31,7 @@ function Home() {
         <img
           src={lightMode ? Hero2 : Hero}
           alt={lightMode ? "Angelic figure in golden light" : "Dark gothic illustration"}
+          fetchpriority="high"
         />
         <div className="hero__fog" aria-hidden="true"></div>
         <div className="hero__grain" aria-hidden="true"></div>
@@ -56,13 +57,13 @@ function Home() {
         aria-label="Gallery cards"
       >
         <div className="card reveal--scale reveal--delay-1">
-          <img src={lightMode ? Card4 : Card1} alt="Dark artwork — solitude" />
+          <img src={lightMode ? Card4 : Card1} alt="Dark artwork — solitude" loading="lazy" decoding="async" />
         </div>
         <div className="card reveal--scale reveal--delay-2">
-          <img src={lightMode ? Card5 : Card2} alt="Dark artwork — descent" />
+          <img src={lightMode ? Card5 : Card2} alt="Dark artwork — descent" loading="lazy" decoding="async" />
         </div>
         <div className="card reveal--scale reveal--delay-3">
-          <img src={lightMode ? Card6 : Card3} alt="Dark artwork — abyss" />
+          <img src={lightMode ? Card6 : Card3} alt="Dark artwork — abyss" loading="lazy" decoding="async" />
         </div>
       </section>
 
@@ -71,6 +72,8 @@ function Home() {
           <img
             src={lightMode ? QuoteImg2 : QuoteImg}
             alt={lightMode ? "Angelic figure" : "Fallen angel illustration"}
+            loading="lazy"
+            decoding="async"
           />
         </div>
         <div className="line" aria-hidden="true"></div>
