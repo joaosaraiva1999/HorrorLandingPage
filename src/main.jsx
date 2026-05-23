@@ -8,6 +8,7 @@ import Backtop from './components/Backtotop';
 const Home = lazy(() => import('./pages/Home'));
 const About = lazy(() => import('./pages/About'));
 const Contacts = lazy(() => import('./pages/Contacts'));
+import ScrollToTop from './components/ScrollToTop';
 import { ThemeProvider } from './context/ThemeContext';
 import { SpeedInsights } from "@vercel/speed-insights/react"
 
@@ -15,6 +16,7 @@ createRoot(document.getElementById('root')).render(
   <StrictMode>
     <ThemeProvider>
       <Router>
+        <ScrollToTop />
         <SpeedInsights />
         <Header />
         <Suspense fallback={null}>
