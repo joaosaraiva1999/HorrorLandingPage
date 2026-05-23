@@ -139,3 +139,16 @@
         font-size: 12px;
     }
 }
+
+/* Disable hover effects on touch devices */
+@media (hover: none) {
+    .contact-card:hover {
+        transform: none;
+        box-shadow: none;
+        border-color: rgba(100, 100, 100, 0.15);
+    }
+
+    .contact-card:hover .contact-icon {
+        transform: none;
+    }
+}

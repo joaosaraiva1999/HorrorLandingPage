@@ -32,6 +32,37 @@ html {
 
 /* Reduced motion: handled per-component in hooks (useScrollReveal, useTypewriter) */
 
+/* ── Mobile performance: disable expensive GPU animations ── */
+@media (max-width: 768px) {
+  .hero__grain {
+    display: none !important;
+  }
+
+  .hero__fog {
+    animation: none !important;
+  }
+
+  .hero img {
+    animation: none !important;
+    transform: scale(1.02);
+    filter: brightness(0.72) saturate(1.1) contrast(1.12);
+  }
+
+  .light-mode .hero img {
+    filter: brightness(1.02) saturate(1.1) contrast(1.08);
+  }
+
+  .reveal,
+  .reveal--left,
+  .reveal--right,
+  .reveal--scale {
+    transition-duration: 0.5s !important;
+  }
+
+  .reveal--delay-3 { transition-delay: 0.2s; }
+  .reveal--delay-4 { transition-delay: 0.3s; }
+}
+
 body {
   background-color: #555;
   font-family: var(--ff-body);
@@ -56,6 +87,14 @@ body {
 .theme-transition *::after {
   transition: background-color 0.35s ease, color 0.35s ease,
               border-color 0.35s ease, box-shadow 0.35s ease !important;
+}
+
+@media (max-width: 768px) {
+  .theme-transition *,
+  .theme-transition *::before,
+  .theme-transition *::after {
+    transition-duration: 0.2s !important;
+  }
 }
 
 ::selection {

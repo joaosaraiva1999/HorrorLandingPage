@@ -1,11 +1,11 @@
 import "./Style.css";
 import { useState } from "react";
 import { useTheme } from "../../context/ThemeContext";
-import HeroDark from "../../assets/img/contact_dark_hero.png";
-import HeroLight from "../../assets/img/contact_light_hero.png";
-import FundoCardSec from "../../assets/img/Cópia de Banner -  pizza.png";
-import QuoteImg from "../../assets/img/fallen.png";
-import QuoteImg2 from "../../assets/img/anjo.png";
+import HeroDark from "../../assets/img/contact_dark_hero.webp";
+import HeroLight from "../../assets/img/contact_light_hero.webp";
+import FundoCardSec from "../../assets/img/Cópia de Banner -  pizza.webp";
+import QuoteImg from "../../assets/img/fallen.webp";
+import QuoteImg2 from "../../assets/img/anjo.webp";
 import { MdEmail } from "react-icons/md";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 import { useScrollReveal } from "../../hooks/useScrollReveal";
